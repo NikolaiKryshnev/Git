@@ -1,15 +1,15 @@
-import { FC } from "react";
-import { BlocksTable } from "~/components/blocks/blocks-table";
-import { TxEffectsTable } from "~/components/tx-effects/tx-effects-table";
-import { useLatestBlocks } from "~/hooks";
+import { FC } from 'react';
+import { BlocksTable } from '~/components/blocks/blocks-table';
+import { TxEffectsTable } from '~/components/tx-effects/tx-effects-table';
+import { useLatestBlocks } from '~/hooks';
 import {
   useAvarageBlockTime,
   useAvarageFees,
   useTotalContracts,
   useTotalTxEffects,
   useTotalTxEffectsLast24h,
-} from "~/hooks/stats";
-import { mapLatestBlocks, mapLatestTxEffects } from "./util";
+} from '~/hooks/stats';
+import { mapLatestBlocks, mapLatestTxEffects } from './util';
 
 export const Landing: FC = () => {
   const { data: latestBlocks, isLoading, error } = useLatestBlocks();
@@ -49,8 +49,8 @@ export const Landing: FC = () => {
     data?: string,
   ) => {
     let text;
-    if (!data) text = "No Data";
-    if (isLoading) text = "Loading";
+    if (!data) text = 'No Data';
+    if (isLoading) text = 'Loading';
     if (error) text = error.message;
     if (data) text = data;
 
@@ -62,11 +62,7 @@ export const Landing: FC = () => {
       <div className="flex flex-row flex-wrap justify-center gap-2 m-8">
         <div className="bg-white w-3/12 rounded-lg shadow-md p-4">
           <p>Total Tx Effects</p>
-          {getStatsData(
-            loadingTotalEffects,
-            errorTotalEffects,
-            totalTxEffects,
-          )}
+          {getStatsData(loadingTotalEffects, errorTotalEffects, totalTxEffects)}
         </div>
         <div className="bg-white w-3/12 rounded-lg shadow-md p-4">
           <p>TX-Effects last 24 hours </p>
@@ -95,10 +91,7 @@ export const Landing: FC = () => {
             errorAvarageBlockTime,
             avarageBlockTime,
           )}
-        </div>
-        <div className="bg-white w-3/12 rounded-lg shadow-md p-4">
-          <p>Todo</p>
-          <h2 className="text-primary">TODO</h2>
+          ms
         </div>
       </div>
       <div className="flex flex-row gap-4">

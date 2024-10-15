@@ -20,9 +20,9 @@ build:
       docker:
         dockerfile: Dockerfile
         buildArgs:
-          NODE_ENV: "development"
-          VITE_API_URL: "http://explorer-api.localhost:80/v1/d1e2083a-660c-4314-a6f2-1d42f4b944f4"
-          WS_URL: "ws://ws.localhost:80" # TODO: use API_KEY
+          NODE_ENV: 'development'
+          VITE_API_URL: 'http://explorer-api.localhost:8080/'
+          WS_URL: 'ws://ws.localhost:80' # TODO: use API_KEY
       requires:
         - image: chicmoz-base
           alias: BASE
@@ -121,9 +121,9 @@ manifests:
         valuesFiles:
           - k8s/local/postgres/values.yaml
         setValues:
-          global.postgresql.auth.postgresPassword: "secret-local-password"
-          global.postgresql.auth.username: "admin"
-          global.postgresql.auth.password: "secret-local-password"
+          global.postgresql.auth.postgresPassword: 'secret-local-password'
+          global.postgresql.auth.username: 'admin'
+          global.postgresql.auth.password: 'secret-local-password'
           image.debug: true
         namespace: chicmoz
         createNamespace: false
