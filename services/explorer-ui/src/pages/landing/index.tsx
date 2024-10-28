@@ -3,8 +3,8 @@ import { BlocksTable } from '~/components/blocks/blocks-table';
 import { TxEffectsTable } from '~/components/tx-effects/tx-effects-table';
 import { useLatestBlocks } from '~/hooks';
 import {
-  useAvеrageBlockTime,
-  useAvеrageFees,
+  useAvarageBlockTime,
+  useAvarageFees,
   useTotalContracts,
   useTotalTxEffects,
   useTotalTxEffectsLast24h,
@@ -24,20 +24,20 @@ export const Landing: FC = () => {
     error: errorTotalEffects24h,
   } = useTotalTxEffectsLast24h();
   const {
-    data: avеrageFees,
-    isLoading: loadingAvеrageFees,
-    error: errorAvеrageFees,
-  } = useAvеrageFees();
+    data: avarageFees,
+    isLoading: loadingAvarageFees,
+    error: errorAvarageFees,
+  } = useAvarageFees();
   const {
     data: totalAmountOfContracts,
     isLoading: loadingAmountContracts,
     error: errorAmountContracts,
   } = useTotalContracts();
   const {
-    data: avеrageBlockTime,
-    isLoading: loadingAvеrageBlockTime,
-    error: errorAvеrageBlockTime,
-  } = useAvеrageBlockTime();
+    data: avarageBlockTime,
+    isLoading: loadingAvarageBlockTime,
+    error: errorAvarageBlockTime,
+  } = useAvarageBlockTime();
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p className="text-red-500">{error.message}</p>;
@@ -82,14 +82,14 @@ export const Landing: FC = () => {
         </div>
         <div className="bg-white w-3/12 rounded-lg shadow-md p-4">
           <p>Average fee's</p>
-          {getStatsData(loadingAvеrageFees, errorAvеrageFees, avеrageFees)}
+          {getStatsData(loadingAvarageFees, errorAvarageFees, avarageFees)}
         </div>
         <div className="bg-white w-3/12 rounded-lg shadow-md p-4">
           <p>Average block time</p>
           {getStatsData(
-            loadingAvеrageBlockTime,
-            errorAvеrageBlockTime,
-            avеrageBlockTime,
+            loadingAvarageBlockTime,
+            errorAvarageBlockTime,
+            avarageBlockTime,
           )}
           ms
         </div>
